@@ -2,7 +2,7 @@
   "name": "base64",
   "main": "./lib/base64",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "A Base64 encoder and decoder",
   "activationEvents": [ "base64:encode", "base64:decode" ],
   "repository": "https://github.com/mmattozzi/atom-base64",
   "license": "MIT",
