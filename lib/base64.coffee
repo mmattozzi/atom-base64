@@ -1,18 +1,24 @@
 module.exports =
-  activate: ->
-    atom.workspaceView.command "base64:encode", => @encode()
-    atom.workspaceView.command "base64:decode", => @decode()
+  
+  activate: (state) ->
+    atom.commands.add 'atom-workspace',
+      'base64:encode': => @encode()
+      'base64:decode': => @decode()
 
   encode: ->
-    # This assumes the active pane item is an editor
-    editor = atom.workspace.activePaneItem
-    selection = editor.getSelection()
-    selection.insertText(new Buffer(selection.getText()).toString("base64"),
-      { "select": true})
+    editor = atom.workspace.getActiveTextEditor()
+    selections = editor.getSelections()
+    for selection in selections
+      selection.insertText(
+        new Buffer(selection.getText()).toString("base64"), 
+        { "select": true}
+      )
 
   decode: ->
-    # This assumes the active pane item is an editor
-    editor = atom.workspace.activePaneItem
-    selection = editor.getSelection()
-    selection.insertText(new Buffer(selection.getText(), "base64").toString("utf8"),
-      { "select": true})
+    editor = atom.workspace.getActiveTextEditor()
+    selections = editor.getSelections()
+    for selection in selections
+      selection.insertText(
+        new Buffer(selection.getText(), "base64").toString("utf8"),
+        { "select": true }
+      )

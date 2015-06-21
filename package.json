@@ -1,16 +1,18 @@
 {
   "name": "base64",
   "main": "./lib/base64",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Base64 encoder and decoder",
-  "activationEvents": [
-    "base64:encode",
-    "base64:decode"
-  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "base64:encode",
+      "base64:decode"
+    ]
+  },
   "repository": "https://github.com/mmattozzi/atom-base64",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">0.210.0"
   },
   "dependencies": {}
 }
