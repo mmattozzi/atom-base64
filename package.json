@@ -1,7 +1,7 @@
 {
   "name": "base64",
   "main": "./lib/base64",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A Base64 encoder and decoder",
   "activationCommands": {
     "atom-workspace": [
