@@ -7,18 +7,20 @@ module.exports =
 
   encode: ->
     editor = atom.workspace.getActiveTextEditor()
-    selections = editor.getSelections()
-    for selection in selections
-      selection.insertText(
-        new Buffer(selection.getText()).toString("base64"), 
-        { "select": true}
-      )
+    if editor
+      selections = editor.getSelections()
+      for selection in selections
+        selection.insertText(
+          new Buffer(selection.getText()).toString("base64"), 
+          { "select": true}
+        )
 
   decode: ->
     editor = atom.workspace.getActiveTextEditor()
-    selections = editor.getSelections()
-    for selection in selections
-      selection.insertText(
-        new Buffer(selection.getText(), "base64").toString("utf8"),
-        { "select": true }
-      )
+    if editor
+      selections = editor.getSelections()
+      for selection in selections
+        selection.insertText(
+          new Buffer(selection.getText(), "base64").toString("utf8"),
+          { "select": true }
+        )
